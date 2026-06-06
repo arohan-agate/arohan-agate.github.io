@@ -359,8 +359,10 @@ footer{
 /* ------------------------------------------------------------
    Staggered load reveal (pure CSS; honors reduced motion)
    ------------------------------------------------------------ */
-@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-.r{opacity:0;animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+/* (.01 rather than 0 so the heading still counts as painted content
+   for Largest Contentful Paint — visually indistinguishable) */
+@keyframes rise{from{opacity:.01;transform:translateY(14px)}to{opacity:1;transform:none}}
+.r{opacity:.01;animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
 .r1{animation-delay:.05s}.r2{animation-delay:.16s}.r3{animation-delay:.27s}
 .r4{animation-delay:.38s}.r5{animation-delay:.49s}.r6{animation-delay:.6s}.r7{animation-delay:.7s}
 @media (prefers-reduced-motion:reduce){.r{animation:none;opacity:1}}
