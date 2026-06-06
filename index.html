@@ -43,13 +43,12 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-<!-- Self-hosted fonts: preload only the faces visible immediately
-     (display serif, its italic for the last name, body serif, mono).
-     The remaining faces load lazily via @font-face. -->
+<!-- Self-hosted fonts: preload only the two faces that gate the
+     largest first paint (display serif + body serif). The italic and
+     mono faces are discovered via @font-face and swap in just after,
+     which keeps slow-connection LCP fast. -->
 <link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/fraunces-latin-italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
 
 <link rel="stylesheet" href="assets/css/style.css">
 
