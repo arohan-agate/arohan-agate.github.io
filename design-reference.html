@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arohan — Computer Science &amp; Philosophy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f7f4ec;
+    --paper-2:#efe8da;
+    --ink:#211e1a;
+    --ink-soft:#5c544a;
+    --ink-faint:#938a7c;
+    --accent:#a8421f;
+    --accent-hi:#c2532b;
+    --line:rgba(33,30,26,.12);
+    --line-soft:rgba(33,30,26,.07);
+    --display:"Fraunces",Georgia,serif;
+    --body:"Newsreader",Georgia,serif;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:var(--body);
+    background:var(--paper);
+    color:var(--ink);
+    font-size:19px;
+    line-height:1.62;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:1;
+    opacity:.5;
+    mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.045'/%3E%3C/svg%3E");
+  }
+  .wrap{
+    position:relative;
+    z-index:2;
+    max-width:760px;
+    margin:0 auto;
+    padding:92px 32px 120px;
+  }
+  header{
+    display:flex;
+    gap:34px;
+    align-items:flex-start;
+    margin-bottom:74px;
+  }
+  .portrait{
+    flex:0 0 auto;
+    width:124px;
+    height:148px;
+    border-radius:3px;
+    background:linear-gradient(150deg,var(--paper-2),#e3dac8);
+    border:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--ink-faint);
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:.06em;
+    text-align:center;
+    overflow:hidden;
+    box-shadow:0 1px 0 rgba(255,255,255,.6) inset;
+  }
+  .portrait img{width:100%;height:100%;object-fit:cover;display:block}
+  .head-text{padding-top:4px}
+  h1{
+    font-family:var(--display);
+    font-weight:560;
+    font-size:clamp(2.7rem,7vw,3.7rem);
+    line-height:.98;
+    letter-spacing:-.018em;
+    margin-bottom:16px;
+  }
+  h1 .last{color:var(--ink-soft);font-weight:420;font-style:italic}
+  .tagline{
+    font-size:1.04rem;
+    color:var(--ink-soft);
+    max-width:42ch;
+    line-height:1.5;
+    margin-bottom:20px;
+  }
+  .tagline em{color:var(--accent);font-style:normal}
+  .links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px 8px;
+    font-family:var(--mono);
+    font-size:12px;
+  }
+  .links a{
+    color:var(--ink-soft);
+    text-decoration:none;
+    border:1px solid var(--line);
+    padding:5px 11px;
+    border-radius:999px;
+    transition:all .18s ease;
+    background:rgba(255,255,255,.25);
+  }
+  .links a:hover{
+    color:#fff;
+    background:var(--accent);
+    border-color:var(--accent);
+    transform:translateY(-1px);
+  }
+  section{margin-bottom:60px}
+  .label{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin-bottom:26px;
+  }
+  .label::after{content:"";flex:1;height:1px;background:var(--line)}
+  p.prose{color:#2c2823;max-width:62ch}
+  p.prose + p.prose{margin-top:14px}
+  a.inline{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(168,66,31,.3);transition:border-color .18s}
+  a.inline:hover{border-color:var(--accent)}
+  .news{display:grid;gap:13px}
+  .news-row{
+    display:grid;
+    grid-template-columns:92px 1fr;
+    gap:18px;
+    align-items:baseline;
+    font-size:.95rem;
+  }
+  .news-row time{
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--accent);
+    letter-spacing:.02em;
+    padding-top:3px;
+  }
+  .news-row span{color:#322d27}
+  .pub{
+    display:grid;
+    grid-template-columns:148px 1fr;
+    gap:26px;
+    padding:24px 0;
+    border-top:1px solid var(--line-soft);
+  }
+  .pub:first-of-type{border-top:none;padding-top:4px}
+  .thumb{
+    aspect-ratio:4/3;
+    border-radius:3px;
+    border:1px solid var(--line);
+    background-size:cover;
+    background-position:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .thumb.g1{background:radial-gradient(120% 120% at 20% 10%,#c97a4e 0%,#8d3c1f 45%,#3b1d12 100%)}
+  .thumb.g2{background:linear-gradient(135deg,#2e3a46 0%,#54707f 55%,#a9c3cb 100%)}
+  .thumb.g3{background:conic-gradient(from 210deg at 60% 40%,#b8893f,#6f4421,#23303a,#b8893f)}
+  .thumb::after{
+    content:"figure";
+    position:absolute;left:8px;bottom:6px;
+    font-family:var(--mono);font-size:9px;letter-spacing:.1em;
+    color:rgba(255,255,255,.62);
+  }
+  .pub-title{
+    font-family:var(--display);
+    font-size:1.24rem;
+    font-weight:560;
+    line-height:1.18;
+    letter-spacing:-.01em;
+    margin-bottom:6px;
+  }
+  .pub-title a{color:var(--ink);text-decoration:none;transition:color .18s}
+  .pub-title a:hover{color:var(--accent)}
+  .authors{font-size:.94rem;color:var(--ink-soft);margin-bottom:3px}
+  .authors b{color:var(--ink);font-weight:600}
+  .venue{font-size:.9rem;font-style:italic;color:var(--ink-soft);margin-bottom:11px}
+  .venue .tag{
+    font-style:normal;font-family:var(--mono);font-size:10px;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--accent);
+    border:1px solid rgba(168,66,31,.35);padding:1px 6px;border-radius:3px;margin-left:8px;
+  }
+  .summary{font-size:.92rem;color:#403a32;max-width:54ch;margin-bottom:12px;line-height:1.5}
+  .pub-links{display:flex;flex-wrap:wrap;gap:7px;font-family:var(--mono);font-size:10.5px}
+  .pub-links a{
+    color:var(--ink-soft);text-decoration:none;
+    border:1px solid var(--line);padding:3px 9px;border-radius:3px;
+    letter-spacing:.04em;transition:all .16s;
+  }
+  .pub-links a:hover{color:#fff;background:var(--ink);border-color:var(--ink)}
+  .entry{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:6px 24px;
+    padding:16px 0;
+    border-top:1px solid var(--line-soft);
+  }
+  .entry:first-of-type{border-top:none}
+  .entry .role{font-weight:600;font-size:1.02rem;color:var(--ink)}
+  .entry .role span{color:var(--ink-soft);font-weight:400}
+  .entry .org{font-size:.92rem;color:var(--ink-soft)}
+  .entry .when{
+    font-family:var(--mono);font-size:11px;color:var(--ink-faint);
+    letter-spacing:.02em;text-align:right;white-space:nowrap;padding-top:3px;
+  }
+  .entry .desc{grid-column:1/-1;font-size:.91rem;color:#433d34;line-height:1.5;margin-top:3px;max-width:58ch}
+  .contact p{font-size:1.02rem;color:#2c2823;max-width:56ch}
+  .contact a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(168,66,31,.3)}
+  .contact a:hover{border-color:var(--accent)}
+  footer{
+    margin-top:30px;padding-top:26px;border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:11px;color:var(--ink-faint);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;letter-spacing:.02em;
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .r{opacity:0;animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+  .r1{animation-delay:.05s}.r2{animation-delay:.16s}.r3{animation-delay:.27s}
+  .r4{animation-delay:.38s}.r5{animation-delay:.49s}.r6{animation-delay:.6s}.r7{animation-delay:.7s}
+  @media (prefers-reduced-motion:reduce){.r{animation:none;opacity:1}}
+  @media (max-width:620px){
+    body{font-size:18px}
+    .wrap{padding:60px 22px 90px}
+    header{flex-direction:column;gap:22px;margin-bottom:54px}
+    .portrait{width:104px;height:124px}
+    .pub{grid-template-columns:1fr;gap:14px}
+    .thumb{max-width:200px}
+    .news-row{grid-template-columns:74px 1fr;gap:12px}
+    .entry{grid-template-columns:1fr}
+    .entry .when{text-align:left;padding-top:1px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="portrait r r1">your photo</div>
+    <div class="head-text">
+      <h1 class="r r1">Arohan <span class="last">Lastname</span></h1>
+      <p class="tagline r r2">
+        Computer Science &amp; Philosophy at the University of Washington.
+        I work on 3D computer vision and grounded vision&ndash;language
+        perception. Incoming software engineer at <em>Meta</em>.
+      </p>
+      <nav class="links r r3">
+        <a href="#">Email</a>
+        <a href="#">Google&nbsp;Scholar</a>
+        <a href="#">GitHub</a>
+        <a href="#">CV&nbsp;(PDF)</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="about r r4">
+    <div class="label">about</div>
+    <p class="prose">
+      I&rsquo;m drawn to problems where machine perception runs into questions of
+      meaning and accountability, which is where my work connects to my interests
+      in philosophy, law, and policy. The Interdisciplinary Honors track lets me
+      build across those boundaries instead of picking one.
+    </p>
+    <p class="prose">
+      Outside research I debate, travel, and write.
+    </p>
+  </section>
+
+  <section class="r r5">
+    <div class="label">news</div>
+    <div class="news">
+      <div class="news-row">
+        <time>Jun 2026</time>
+        <span>Starting at <b>Meta</b> (Instagram Search Recommendations) for the summer.</span>
+      </div>
+      <div class="news-row">
+        <time>Apr 2026</time>
+        <span>First-author paper under review at <b>CVPR 2026</b> on 3D computer vision.</span>
+      </div>
+      <div class="news-row">
+        <time>Mar 2026</time>
+        <span>Workshop paper at the CVPR 2026 E2E3D workshop (non-archival).</span>
+      </div>
+      <div class="news-row">
+        <time>Feb 2026</time>
+        <span>New preprint on grounded vision&ndash;language correspondence, under review.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="r r6">
+    <div class="label">selected publications</div>
+
+    <article class="pub">
+      <div class="thumb g1"></div>
+      <div>
+        <div class="pub-title"><a href="#">Working Title: A 3D Computer Vision Paper</a></div>
+        <div class="authors"><b>Arohan Lastname</b>, Co-author Name, Senior Author</div>
+        <div class="venue">Under review, CVPR 2026 <span class="tag">first author</span></div>
+        <p class="summary">
+          One or two lines on the contribution. Replace with the real abstract
+          teaser once the title and authors are final.
+        </p>
+        <div class="pub-links">
+          <a href="#">paper</a><a href="#">arXiv</a><a href="#">code</a>
+          <a href="#">project&nbsp;page</a><a href="#">bibtex</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="pub">
+      <div class="thumb g3"></div>
+      <div>
+        <div class="pub-title"><a href="#">Working Title: Grounded Vision&ndash;Language Correspondence</a></div>
+        <div class="authors">First Author, <b>Arohan Lastname</b>, et al.</div>
+        <div class="venue">Under review, NeurIPS 2026 <span class="tag">preprint</span></div>
+        <p class="summary">
+          Short description of the grounding benchmark / pipeline work.
+        </p>
+        <div class="pub-links">
+          <a href="#">arXiv</a><a href="#">code</a><a href="#">bibtex</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="pub">
+      <div class="thumb g2"></div>
+      <div>
+        <div class="pub-title"><a href="#">Workshop Paper Title</a></div>
+        <div class="authors"><b>Arohan Lastname</b>, Co-author Name</div>
+        <div class="venue">CVPR 2026 E2E3D Workshop (non-archival)</div>
+        <div class="pub-links">
+          <a href="#">paper</a><a href="#">poster</a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section class="r r7">
+    <div class="label">experience</div>
+
+    <div class="entry">
+      <div>
+        <div class="role">Software Engineer Intern <span>&middot; incoming</span></div>
+        <div class="org">Meta &mdash; Instagram Search Recommendations</div>
+      </div>
+      <div class="when">Summer 2026</div>
+      <div class="desc">Recommendations and search relevance for Instagram.</div>
+    </div>
+
+    <div class="entry">
+      <div>
+        <div class="role">Undergraduate Researcher</div>
+        <div class="org">RAIVN Lab, University of Washington</div>
+      </div>
+      <div class="when">2024 &ndash; present</div>
+      <div class="desc">3D reconstruction and grounded vision&ndash;language perception; large-scale pipelines on the Hyak cluster.</div>
+    </div>
+
+    <div class="entry">
+      <div>
+        <div class="role">Project Lead</div>
+        <div class="org">Husky Coding Project</div>
+      </div>
+      <div class="when">2023 &ndash; 2024</div>
+    </div>
+  </section>
+
+  <section class="r r7">
+    <div class="label">teaching</div>
+    <div class="entry">
+      <div>
+        <div class="role">Teaching Assistant <span>&middot; [course]</span></div>
+        <div class="org">University of Washington</div>
+      </div>
+      <div class="when">[term]</div>
+      <div class="desc">Add your TA / mentorship roles here.</div>
+    </div>
+  </section>
+
+  <section class="contact r r7">
+    <div class="label">contact</div>
+    <p>
+      Reach me at <a href="mailto:you@uw.edu">you@uw.edu</a>. I&rsquo;m happy to
+      talk about research, recommendations, or anything at the intersection of
+      computer science and philosophy.
+    </p>
+  </section>
+
+  <footer>
+    <span>&copy; 2026 Arohan Lastname</span>
+    <span>last updated &mdash; june 2026</span>
+  </footer>
+
+</div>
+</body>
+</html>
