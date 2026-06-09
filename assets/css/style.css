@@ -137,7 +137,7 @@ img{display:block;max-width:100%}
 .ent-s{font-size:.9rem;color:var(--soft)}
 .ent-d{grid-column:1;font-size:.86rem;color:var(--faint);margin-top:4px;line-height:1.5;max-width:60ch}
 .ent-w{font-family:var(--mono);font-size:.72rem;color:var(--faint);text-align:right;white-space:nowrap}
-.ent-w span{display:block;margin-top:3px;opacity:.85}
+.ent-w span{display:block;margin-top:3px}
 
 /* ------------------------------------------------------------
    Contact
