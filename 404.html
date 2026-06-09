@@ -5,24 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>404 — Arohan Agate</title>
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#f7f4ec">
-<!-- Absolute paths: GitHub Pages serves this page at any missing URL depth. -->
+<meta name="theme-color" content="#fbfbfc">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/assets/css/style.css">
+<!-- Self-contained so it renders at any missing URL depth. -->
+<style>
+  @font-face{font-family:"Inter";font-weight:400 700;font-display:swap;
+    src:url("/assets/fonts/inter-latin.woff2") format("woff2")}
+  @font-face{font-family:"JetBrains Mono";font-weight:400 500;font-display:swap;
+    src:url("/assets/fonts/jetbrains-mono-latin.woff2") format("woff2")}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:"Inter",system-ui,sans-serif;background:#fbfbfc;color:#15171d;
+    min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+  .box{max-width:420px}
+  .code{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.18em;
+    text-transform:uppercase;color:#6b707e;margin-bottom:14px}
+  h1{font-size:2rem;font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
+  p{color:#565b66;line-height:1.6;margin-bottom:20px}
+  a{color:#2f54eb;text-decoration:none;border-bottom:1px solid #c5d0fb}
+  a:hover{border-color:#2f54eb}
+</style>
 </head>
 <body>
-<div class="wrap">
-  <main>
-    <section class="r r1">
-      <h2 class="label">404</h2>
-      <h1>Page not <span class="last">found.</span></h1>
-      <p class="prose" style="margin-top:18px">
-        Nothing lives at this address.
-        <a class="inline" href="/">Back to the homepage&nbsp;&rarr;</a>
-      </p>
-    </section>
-  </main>
-</div>
+  <div class="box">
+    <div class="code">error 404</div>
+    <h1>Page not found.</h1>
+    <p>Nothing lives at this address.</p>
+    <a href="/">&larr; Back to the homepage</a>
+  </div>
 </body>
 </html>

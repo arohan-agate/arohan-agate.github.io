@@ -4,11 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!-- ════════════════════════════════════════════════════════════════
+     HOW TO EDIT THIS FILE
+     · Spots you fill in are marked with comments starting "FILL IN:".
+     · Repeatable blocks (publications, entries) have a template note
+       above them showing how to add another.
+     · Layout: a fixed left sidebar (.rail) holds your identity + nav;
+       the right pane (.content) holds the sections. The sidebar nav
+       highlights the section you're viewing (scroll-spy script at the
+       bottom of <body>). All styling lives in assets/css/style.css.
+     ════════════════════════════════════════════════════════════════ -->
 
 <title>Arohan Agate</title>
-<meta name="description" content="Arohan Agate is a senior at the University of Washington studying computer science and philosophy. He works on 3D computer vision and grounded vision–language perception, and is an incoming software engineering intern at Meta.">
+<meta name="description" content="Arohan Agate is an undergraduate at the University of Washington studying computer science and philosophy. He works on 3D computer vision and grounded vision–language perception, and is a software engineering intern at Meta.">
 <meta name="author" content="Arohan Agate">
-<meta name="theme-color" content="#f7f4ec">
+<meta name="theme-color" content="#fbfbfc">
 <link rel="canonical" href="https://arohan-agate.github.io/">
 
 <!-- Social preview cards -->
@@ -16,15 +26,15 @@
 <meta property="og:url" content="https://arohan-agate.github.io/">
 <meta property="og:site_name" content="Arohan Agate">
 <meta property="og:title" content="Arohan Agate">
-<meta property="og:description" content="Senior at the University of Washington working on 3D computer vision and grounded vision–language perception. Incoming software engineering intern at Meta.">
+<meta property="og:description" content="University of Washington — computer science & philosophy. Software engineering intern at Meta. Computer vision research with the UW RAIVN Lab.">
 <meta property="og:image" content="https://arohan-agate.github.io/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Arohan Agate — Computer Science &amp; Philosophy at the University of Washington">
+<meta property="og:image:alt" content="Arohan Agate — computer science & philosophy at the University of Washington">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Arohan Agate — Computer Science &amp; Philosophy">
-<meta name="twitter:description" content="Senior at the University of Washington working on 3D computer vision and grounded vision–language perception. Incoming software engineering intern at Meta.">
+<meta name="twitter:title" content="Arohan Agate">
+<meta name="twitter:description" content="University of Washington — computer science & philosophy. Software engineering intern at Meta. Computer vision research with the UW RAIVN Lab.">
 <meta name="twitter:image" content="https://arohan-agate.github.io/assets/img/og.png">
 
 <!-- Icons -->
@@ -32,117 +42,120 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-<!-- Self-hosted fonts: preload only the two faces that gate the
-     largest first paint (display serif + body serif). The italic and
-     mono faces are discovered via @font-face and swap in just after,
-     which keeps slow-connection LCP fast. -->
-<link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Self-hosted fonts: preload the two that gate first paint. -->
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
 
 <link rel="stylesheet" href="assets/css/style.css">
 
-<!-- Structured data for search engines.
-     FILL IN: append your Google Scholar and LinkedIn URLs to "sameAs"
-     once those links are live (comma-separated, like the GitHub one). -->
+<!-- Structured data for search engines. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Arohan Agate",
   "url": "https://arohan-agate.github.io/",
-  "affiliation": {
-    "@type": "CollegeOrUniversity",
-    "name": "University of Washington"
-  },
+  "affiliation": { "@type": "CollegeOrUniversity", "name": "University of Washington" },
   "sameAs": [
-    "https://github.com/arohan-agate"
+    "https://github.com/arohan-agate",
+    "https://scholar.google.com/citations?user=2ncTwsoAAAAJ&hl=en",
+    "https://www.linkedin.com/in/arohan-agate/"
   ],
-  "knowsAbout": [
-    "3D computer vision",
-    "vision-language perception",
-    "philosophy"
-  ]
+  "knowsAbout": ["3D computer vision", "vision-language perception", "philosophy"]
 }
 </script>
 </head>
 <body>
-<div class="wrap">
+<div class="layout">
 
-  <header>
-    <img class="portrait r r1" src="assets/img/profilepic.jpg"
-         alt="Portrait of Arohan Agate" width="496" height="592">
+  <!-- ══════════════════════════════════════════════════════════════
+       SIDEBAR · photo, name, blurb, social links, section nav
+       ══════════════════════════════════════════════════════════════ -->
+  <aside class="rail">
 
-    <div class="head-text">
-      <h1 class="r r1">Arohan Agate</h1>
+    <!-- FILL IN: profile photo at assets/img/profilepic.jpg (square crop). -->
+    <img class="photo" src="assets/img/profilepic.jpg" alt="Portrait of Arohan Agate" width="184" height="184">
 
-      <!-- FILL IN: tweak the one-line blurb whenever it drifts out of date -->
-      <p class="tagline r r2">
+    <div>
+      <h1>Arohan Agate</h1>
+      <!-- FILL IN: short blurb. <em> = accent, <a> = inline link. -->
+      <p class="blurb">
         Computer Science &amp; Philosophy at the University of Washington.
-        Software engineering intern at <em>Meta</em>. Computer vision
-        research with the <a class="inline" href="https://raivn.cs.washington.edu/">UW RAIVN Lab</a>.
+        Software engineering intern at <em>Meta</em>. Computer vision research
+        with the <a href="https://raivn.cs.washington.edu/">UW RAIVN Lab</a>.
       </p>
-
-      <nav class="links r r3" aria-label="Contact and profiles">
-        <a href="mailto:aagate@cs.washington.edu">Email</a>
-        <a href="https://scholar.google.com/citations?user=2ncTwsoAAAAJ&hl=en">Google&nbsp;Scholar</a>
-        <a href="https://github.com/arohan-agate">GitHub</a>
-        <a href="assets/resume.pdf">Resume&nbsp;(PDF)</a>
-        <a href="https://www.linkedin.com/in/arohan-agate/">LinkedIn</a>
-      </nav>
     </div>
-  </header>
 
-  <main>
-    <section id="about" class="about r r4">
-      <h2 class="label">about</h2>
+    <!-- FILL IN: social links (text inside the tag is the visible label). -->
+    <nav class="social" aria-label="Profiles">
+      <a href="mailto:aagate@cs.washington.edu">Email</a>
+      <a href="https://scholar.google.com/citations?user=2ncTwsoAAAAJ&hl=en">Google Scholar</a>
+      <a href="https://github.com/arohan-agate">GitHub</a>
+      <a href="assets/resume.pdf">Resume</a>
+      <a href="https://www.linkedin.com/in/arohan-agate/">LinkedIn</a>
+    </nav>
+
+    <!-- Section nav. To add/remove a section: keep this list in sync with
+         the <section id="…"> ids below (data-sec must match the id). -->
+    <nav class="toc" aria-label="Sections">
+      <a href="#about" data-sec="about">about</a>
+      <a href="#publications" data-sec="publications">publications</a>
+      <a href="#experience" data-sec="experience">experience</a>
+      <a href="#education" data-sec="education">education</a>
+      <a href="#teaching" data-sec="teaching">teaching</a>
+      <a href="#contact" data-sec="contact">contact</a>
+    </nav>
+
+    <!-- FILL IN: bump the date when you make a real update. -->
+    <div class="rail-foot">&copy; 2026 &middot; updated jun 2026</div>
+  </aside>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       CONTENT
+       ══════════════════════════════════════════════════════════════ -->
+  <main class="content">
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>About</h2>
       <p class="prose">
         Hi! I&rsquo;m a third-year undergraduate at the University of Washington, majoring in
         Computer Science and Philosophy, with Interdisciplinary Honors. I work on 3D computer
         vision and grounded vision&ndash;language perception in the UW RAIVN Lab. I&rsquo;m broadly
-        interested in how machines come to represent the world, and what it
-        takes for those representations to be accurate, grounded, and accountable.
+        interested in how machines come to represent the world, and what it takes for those
+        representations to be accurate, grounded, and accountable.
       </p>
       <p class="prose">
         In my free time, I enjoy teaching, learning history, and traveling.
       </p>
     </section>
 
-    <!-- 
-    <section id="news" class="r r5">
-      <h2 class="label">news</h2>
-      <div class="news">
-        <div class="news-row">
-          <time>Jun 2026</time>
-          <span>Filler.</span>
-        </div>
-        <div class="news-row">
-          <time>Apr 2026</time>
-          <span>Filler.</span>
-        </div>
-      </div>
-    </section>
-         -->
-
-    <section id="publications" class="r r6">
-      <h2 class="label">selected publications</h2>
+    <!-- ════════════════════════════════════════════════════════════
+         SELECTED PUBLICATIONS · one <article class="pub"> per paper.
+         To add one, copy a whole block and edit:
+           · pthumb img · figure at assets/figs/<key>.png (4:3 crop)
+           · h3         · title; wrap in <a href="…"> when there's a link
+           · auth       · authors; keep <b>…</b> around your own name
+           · ven        · venue; optional <span class="tag">status</span>
+           · sum        · one-to-two line teaser (optional)
+           · plinks     · <a> per link; use <span class="soon"> for
+                          not-yet-released tags
+         ════════════════════════════════════════════════════════════ -->
+    <section id="publications">
+      <h2>Selected Publications</h2>
 
       <article class="pub">
-        <!-- <div class="thumb g1" aria-hidden="true"></div> -->
-         <!-- duck-rabbit thumbnail -->
-        <div class="thumb" aria-hidden="true">
-          <img src="assets/figs/duck-rabbit.png" alt="">
-        </div>
-        <div>
-          <h3 class="pub-title"><a href="#">Vision-Language Asymmetry in Bistable Image Captioning</a></h3>
-          <div class="authors"><b>Arohan Agate</b></div>
-          <div class="venue">ICML 2026 Workshop on Philosophy and Machine Learning <span class="tag">solo author</span></div>
-          <p class="summary">
-            Sparse autoencoders show that LLaVA-1.6's vision encoder represents both aspects of 
-            bistable images simultaneously while the language decoder commits to one. Causal 
-            steering localizes the seeing-as bottleneck to the language model, not the vision encoder.
+        <div class="pthumb"><img src="assets/figs/duck-rabbit.png" alt="Duck-rabbit bistable figure"></div>
+        <div class="pbody">
+          <h3><a href="https://arxiv.org/abs/2606.08031">Vision-Language Asymmetry in Bistable Image Captioning</a></h3>
+          <div class="auth"><b>Arohan Agate</b></div>
+          <div class="ven">ICML 2026 Workshop on Philosophy and Machine Learning <span class="tag">solo author</span></div>
+          <p class="sum">
+            Sparse autoencoders show that LLaVA-1.6&rsquo;s vision encoder represents both aspects of
+            bistable images simultaneously while the language decoder commits to one. Causal
+            steering localizes the seeing-as bottleneck to the language model.
           </p>
-          <!-- pdf -> arXiv PDF, code -> GitHub, bibtex -> your .bib anchor -->
-          <div class="pub-links">
+          <div class="plinks">
             <a href="https://arxiv.org/abs/2606.08031">paper</a>
             <a href="https://github.com/arohan-agate/aspect-seeing-code">code</a>
           </div>
@@ -150,126 +163,126 @@
       </article>
 
       <article class="pub">
-        <!-- reconstructed-asset render -->
-      <div class="thumb" aria-hidden="true">
-        <img src="assets/figs/video2assets_results.png" alt="">
-      </div>
-        <div>
-          <h3 class="pub-title">Video2Assets: Extracting 3D Object Assets from Unconstrained Video</h3>
-          <div class="authors"><b>Arohan Agate</b>*, Derek Liu*, Chenhao Zheng, Jieyu Zhang &nbsp;<span style="color:var(--ink-faint)">(* equal contribution)</span></div>
-          <div class="venue">CVPR 2026 Workshop on 3D-LLM/VLA <span class="tag">co-first author</span></div>
-          <p class="summary">
+        <div class="pthumb"><img src="assets/figs/video2assets_results.png" alt="Reconstructed 3D assets from video"></div>
+        <div class="pbody">
+          <h3>Video2Assets: Extracting 3D Object Assets from Unconstrained Video</h3>
+          <div class="auth"><b>Arohan Agate</b>*, Derek Liu*, Chenhao Zheng, Jieyu Zhang &nbsp;<span style="color:var(--faint)">(* equal contribution)</span></div>
+          <div class="ven">CVPR 2026 Workshop on 3D-LLM/VLA <span class="tag">co-first author</span></div>
+          <p class="sum">
             A fully automated pipeline from raw video to quality-filtered 3D mesh assets, with
             no camera poses, segmentation, or object labels.
           </p>
-          <!-- not public yet: disabled tags, no links until release -->
-          <div class="pub-links">
+          <!-- not public yet: dashed "soon" tags, no links until release -->
+          <div class="plinks">
             <span class="soon" title="available soon">paper</span>
             <span class="soon" title="available soon">code</span>
           </div>
         </div>
       </article>
-
     </section>
 
-    <section id="experience" class="r r7">
-      <h2 class="label">industry experience</h2>
+    <!-- ════════════════════════════════════════════════════════════
+         EXPERIENCE · one <article class="ent"> per role (newest first).
+           · ent-h · organization
+           · ent-s · role
+           · ent-d · one-line description (optional)
+           · ent-w · date, then optional <span> for location
+         ════════════════════════════════════════════════════════════ -->
+    <section id="experience">
+      <h2>Experience</h2>
 
-      <article class="entry">
+      <article class="ent">
         <div>
-          <h3 class="role">Meta</h3>
-          <div class="org">Software Engineer Intern</div>
+          <div class="ent-h">Meta</div>
+          <div class="ent-s">Software Engineer Intern</div>
+          <p class="ent-d">Recommendations and search relevance for Instagram.</p>
         </div>
-        <div class="when">
-          <span class="date">June 2026 &ndash; Sept 2026</span>
-          <span class="where">Menlo Park, CA</span>
-        </div>
-        <p class="desc">Recommendations and search relevance for Instagram.</p>
+        <div class="ent-w">Jun 2026 &ndash; Sep 2026<span>Menlo Park, CA</span></div>
       </article>
 
-      <article class="entry">
+      <article class="ent">
         <div>
-          <h3 class="role">GEICO</h3>
-          <div class="org">Software Engineer Intern</div>
+          <div class="ent-h">GEICO</div>
+          <div class="ent-s">Software Engineer Intern</div>
+          <p class="ent-d">Enabled custom audience targeting for marketing campaigns.</p>
         </div>
-        <div class="when">
-          <span class="date">June 2025 &ndash; Aug 2025</span>
-          <span class="where">Washington, D.C.</span>
-        </div>
-        <p class="desc">Enabled custom audience targeting for marketing campaigns.</p>
+        <div class="ent-w">Jun 2025 &ndash; Aug 2025<span>Washington, D.C.</span></div>
       </article>
 
-      <article class="entry">
+      <article class="ent">
         <div>
-          <h3 class="role">Altea Healthcare</h3>
-          <div class="org">Data Engineer Intern</div>
+          <div class="ent-h">Altea Healthcare</div>
+          <div class="ent-s">Data Engineer Intern</div>
+          <p class="ent-d">Built dashboards to monitor readmission rates and cap tables.</p>
         </div>
-        <div class="when">
-          <span class="date">June 2024 &ndash; Sept 2024</span>
-          <span class="where">Seattle, WA</span>
-        </div>
-        <p class="desc">Built dashboards to monitor readmission rates and cap tables.</p>
-      </article>
-
-    </section>
-
-    <section id="education" class="r r7">
-      <h2 class="label">education</h2>
-
-      <article class="entry">
-        <div>
-          <h3 class="role">University of Washington</h3>
-          <div class="org">B.S. Computer Science &amp; B.A. Philosophy &middot; Interdisciplinary Honors</div>
-        </div>
-        <div class="when">
-          <span class="date">Sept 2023 &ndash; June 2027</span>
-          <span class="where">Seattle, WA</span>
-        </div>
-        <p class="desc">Selected coursework: Computer Vision, Deep Learning, Machine Learning, 
-          Natural Language Processing, Algorithms, Distributed Systems, Compilers.</p>
-      </article>
-
-    </section>
-
-    <section id="teaching" class="r r7">
-      <h2 class="label">teaching</h2>
-
-      <article class="entry">
-        <div>
-          <h3 class="role">Teaching Assistant <span>&middot; CSE 123 </span></h3>
-          <div class="org">University of Washington</div>
-        </div>
-        <div class="when">Winter 2025, Spring 2025, Winter 2026, Spring 2026</div>
-        <p class="desc">Introduction to Computer Programming III</p>
-      </article>
-      
-      <article class="entry">
-        <div>
-          <h3 class="role">Teaching Assistant <span>&middot; CSE 121 </span></h3>
-          <div class="org">University of Washington</div>
-        </div>
-        <div class="when">Autumn 2024</div>
-        <p class="desc">Introduction to Computer Programming I</p>
+        <div class="ent-w">Jun 2024 &ndash; Sep 2024<span>Seattle, WA</span></div>
       </article>
     </section>
 
-    <section id="contact" class="contact r r7">
-      <h2 class="label">contact</h2>
-      <p>
-        Feel free to reach out to me at <a href="mailto:aagate@cs.washington.edu">aagate@cs.washington.edu</a>. 
+    <!-- EDUCATION · same .ent block as Experience -->
+    <section id="education">
+      <h2>Education</h2>
+
+      <article class="ent">
+        <div>
+          <div class="ent-h">University of Washington</div>
+          <div class="ent-s">B.S. Computer Science &amp; B.A. Philosophy &middot; Interdisciplinary Honors</div>
+          <p class="ent-d">Selected coursework: Computer Vision, Deep Learning, Machine Learning,
+            Natural Language Processing, Algorithms, Distributed Systems, Compilers.</p>
+        </div>
+        <div class="ent-w">Sep 2023 &ndash; Jun 2027<span>Seattle, WA</span></div>
+      </article>
+    </section>
+
+    <!-- TEACHING · same .ent block; the <span class="muted"> renders softer -->
+    <section id="teaching">
+      <h2>Teaching</h2>
+
+      <article class="ent">
+        <div>
+          <div class="ent-h">Teaching Assistant <span class="muted">&middot; CSE 123</span></div>
+          <div class="ent-s">University of Washington</div>
+          <p class="ent-d">Introduction to Computer Programming III</p>
+        </div>
+        <div class="ent-w">Winter 2025 &ndash; Spring 2026</div>
+      </article>
+
+      <article class="ent">
+        <div>
+          <div class="ent-h">Teaching Assistant <span class="muted">&middot; CSE 121</span></div>
+          <div class="ent-s">University of Washington</div>
+          <p class="ent-d">Introduction to Computer Programming I</p>
+        </div>
+        <div class="ent-w">Autumn 2024</div>
+      </article>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <p class="prose">
+        Reach me at <a href="mailto:aagate@cs.washington.edu">aagate@cs.washington.edu</a>.
         I&rsquo;m happy to talk about research, engineering, or anything at the intersection of
         computer science and philosophy.
       </p>
     </section>
 
   </main>
-
-  <!-- FILL IN: bump the "last updated" date when you make a real update -->
-  <footer>
-    <span>&copy; 2026 Arohan Agate</span>
-    <span>last updated &mdash; june 2026</span>
-  </footer>
-
 </div>
+
+<!-- Scroll-spy: highlight the sidebar nav item for the section in view.
+     Progressive enhancement — the nav still works as anchor links if JS
+     is disabled. -->
+<script>
+  var links = document.querySelectorAll('.toc a');
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        links.forEach(function (a) { a.classList.toggle('active', a.dataset.sec === e.target.id); });
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  document.querySelectorAll('.content section').forEach(function (s) { obs.observe(s); });
+</script>
 </body>
 </html>
